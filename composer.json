@@ -1,0 +1,44 @@
+{
+	"name" : "appserver-io-psr/servlet",
+	"description" : "PSR, for a PHP based servlet engine",
+	"homepage" : "https://github.com/appserver-io-psr/servlet",
+	"license" : "OSL-3.0",
+	"keywords" : [
+		"php",
+		"interface",
+		"servlet"
+	],
+	"authors" : [{
+			"name" : "Tim Wagner",
+			"email" : "tw@appserver.io",
+			"homepage" : "http://www.appserver.io",
+			"role" : "Developer"
+		}
+	],
+	"require" : {
+		"php" : ">=5.4.0",
+		"appserver-io-psr/http-message" : "0.1.*"
+	},
+	"require-dev" : {
+		"phpunit/phpunit" : "3.7.*",
+		"appserver-io/build" : "0.1.*"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"AppserverIo\\Psr\\Servlet" : [
+				"src/",
+				"tests/"
+			]
+		}
+	},
+	"config" : {
+		"github-oauth" : {
+			"github.com" : "604a3b5943228e434a5b52c2ba3cf72286d30db9"
+		}
+	},
+	"support" : {
+		"email" : "tw@appserver.io",
+		"issues" : "https://github.com/appserver-io-psr/servlet/issues",
+		"source" : "https://github.com/appserver-io-psr/servlet"
+	}
+}
