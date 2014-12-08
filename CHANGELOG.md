@@ -1,3 +1,13 @@
+# Version 0.6.6
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add @Route annotation implementation for allow annotation based configuration for servlets
+
 # Version 0.6.5
 
 ## Bugfixes
