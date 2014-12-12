@@ -46,6 +46,25 @@ class Route extends ReflectionAnnotation
      * @var string
      */
     const ANNOTATION = 'Route';
+
+    /**
+     * The constructor the initializes the instance with the
+     * data passed with the token.
+     *
+     * @param string $annotationName The annotation name
+     * @param array  $values         The annotation values
+     */
+    public function __construct($annotationName, array $values = array())
+    {
+
+        // initialize the array values
+        $this->values[AnnotationKeys::URL_PATTERN] = array();
+        $this->values[AnnotationKeys::INIT_PARAMS] = array();
+
+        // pass values to parent constructor
+        parent::__construct($annotationName, $values);
+    }
+
     /**
      * This method returns the class name as
      * a string.
