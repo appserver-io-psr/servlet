@@ -1,3 +1,13 @@
+# Version 0.6.7
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Pre-Initialize the Route annotation class initialization params and url mapping arrays
+
 # Version 0.6.6
 
 ## Bugfixes
