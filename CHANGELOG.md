@@ -1,3 +1,13 @@
+# Version 0.7.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Extended the HttpServletRequest interface to be more compliant with corresponding Java6 interface + new set- and getBaseModifier method
+
 # Version 0.6.7
 
 ## Bugfixes
