@@ -53,6 +53,16 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
     }
 
     /**
+     * Returns the base modifier which allows for base path generation within rewritten URL environments
+     *
+     * @return string
+     */
+    public function getBaseModifier()
+    {
+        return $this->getRequest()->getBaseModifier();
+    }
+
+    /**
      * Returns the application context name (application name prefixed with a slash) for the actual request.
      *
      * @return string The application context name
@@ -60,6 +70,27 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
     public function getContextPath()
     {
         return $this->getRequest()->getContextPath();
+    }
+
+
+    /**
+     * Returns the part of this request's URL from the protocol name up to the query string in the first line of the HTTP request.
+     *
+     * @return string
+     */
+    public function getRequestUri()
+    {
+        return $this->getRequest()->getRequestUri();
+    }
+
+    /**
+     * Returns the URL the client used to make the request.
+     *
+     * @return string
+     */
+    public function getRequestUrl()
+    {
+        return $this->getRequest()->getRequestUrl();
     }
 
     /**
