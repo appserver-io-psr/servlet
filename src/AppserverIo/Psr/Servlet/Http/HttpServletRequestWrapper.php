@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
@@ -28,26 +25,23 @@ use AppserverIo\Psr\Servlet\ServletRequestWrapper;
 /**
  * A servlet request implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpServletRequest
+class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpServletRequestInterface
 {
 
     /**
      * Injects the passed request instance into this servlet request.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequest $request The request instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface $request The request instance used for initialization
      *
      * @return void
      */
-    public function injectHttpRequest(HttpServletRequest $request)
+    public function injectHttpRequest(HttpServletRequestInterface $request)
     {
         $this->injectRequest($request);
     }
@@ -72,6 +66,13 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
         return $this->getRequest()->getContextPath();
     }
 
+    /**
+     * @return \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface
+     */
+    public function getRequest()
+    {
+        return $this->request;
+    }
 
     /**
      * Returns the part of this request's URL from the protocol name up to the query string in the first line of the HTTP request.
@@ -81,6 +82,16 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
     public function getRequestUri()
     {
         return $this->getRequest()->getRequestUri();
+    }
+
+    /**
+     * Returns an part instance
+     *
+     * @return \AppserverIo\Psr\HttpMessage\PartInterface
+     */
+    public function getHttpPartInstance()
+    {
+        return $this->getRequest()->getHttpPartInstance();
     }
 
     /**
@@ -108,7 +119,7 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
      *
      * @param boolean $create TRUE to create a new session, else FALSE
      *
-     * @return \AppserverIo\Psr\Servlet\Http\HttpSession The session instance
+     * @return \AppserverIo\Psr\Servlet\Http\HttpSessionInterface The session instance
      */
     public function getSession($create = false)
     {
@@ -228,7 +239,7 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
      */
     public function setMethod($method)
     {
-        return $this->getRequest()->setMethod($method);
+        $this->getRequest()->setMethod($method);
     }
 
     /**

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\ServletContext
+ * AppserverIo\Psr\Servlet\ServletContextInterface
  *
  * NOTICE OF LICENSE
  *
@@ -11,31 +11,25 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
 
 /**
- * Interface that defines a servlet contenxt.
+ * Interface that defines a servlet context.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-interface ServletContext
+interface ServletContextInterface
 {
 
     /**
@@ -43,18 +37,17 @@ interface ServletContext
      *
      * @var string
      */
-    const IDENTIFIER = 'ServletContext';
+    const IDENTIFIER = 'ServletContextInterface';
 
     /**
-     * Return's all servlets
+     * Returns all servlets
      *
      * @return array The servlets collection
      */
     public function getServlets();
 
     /**
-     * Returns the servlet mappings found in the
-     * configuration file.
+     * Returns the servlet mappings found in the configuration file.
      *
      * @return array The servlet mappings
      */
@@ -65,7 +58,7 @@ interface ServletContext
      *
      * @param string $key The name of the servlet to return
      *
-     * @return \AppserverIo\Psr\Servlet\Servlet The servlet instance
+     * @return \AppserverIo\Psr\Servlet\ServletInterface The servlet instance
      */
     public function getServlet($key);
 
@@ -74,7 +67,7 @@ interface ServletContext
      *
      * @param string $urlMapping The URL mapping to return the servlet for
      *
-     * @return \AppserverIo\Psr\Servlet\Servlet The servlet instance
+     * @return \AppserverIo\Psr\Servlet\ServletInterface The servlet instance
      */
     public function getServletByMapping($urlMapping);
 
@@ -106,7 +99,7 @@ interface ServletContext
     /**
      * Returns TRUE if we've at least one session parameter configured, else FALSE.
      *
-     * @return boolean TRUE if we've at least one session parametr configured, else FALSE
+     * @return boolean TRUE if we've at least one session parameter configured, else FALSE
      */
     public function hasSessionParameters();
 

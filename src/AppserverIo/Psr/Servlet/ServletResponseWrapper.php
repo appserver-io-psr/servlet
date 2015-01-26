@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
@@ -26,33 +23,30 @@ namespace AppserverIo\Psr\Servlet;
 /**
  * A servlet response implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-class ServletResponseWrapper implements ServletResponse
+class ServletResponseWrapper implements ServletResponseInterface
 {
 
     /**
      * The response instance.
      *
-     * @var \AppserverIo\Psr\Servlet\ServletResponse
+     * @var \AppserverIo\Psr\Servlet\ServletResponseInterface
      */
     protected $response;
 
     /**
      * Injects the passed response instance into this servlet response.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletResponse $response The response instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\ServletResponseInterface $response The response instance used for initialization
      *
      * @return void
      */
-    public function injectResponse(ServletResponse $response)
+    public function injectResponse(ServletResponseInterface $response)
     {
         $this->response = $response;
     }
@@ -60,7 +54,7 @@ class ServletResponseWrapper implements ServletResponse
     /**
      * Returns the response that will be send back to the client.
      *
-     * @return \AppserverIo\Psr\Servlet\ServletResponse The response instance
+     * @return \AppserverIo\Psr\Servlet\ServletResponseInterface The response instance
      */
     public function getResponse()
     {
@@ -104,7 +98,7 @@ class ServletResponseWrapper implements ServletResponse
     }
 
     /**
-     * Return content
+     * Returns the body content
      *
      * @return string $content
      */
@@ -120,7 +114,7 @@ class ServletResponseWrapper implements ServletResponse
      */
     public function resetBodyStream()
     {
-        return $this->getResponse()->resetBodyStream();
+        $this->getResponse()->resetBodyStream();
     }
 
     /**

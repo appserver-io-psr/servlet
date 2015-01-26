@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
@@ -26,22 +23,17 @@ namespace AppserverIo\Psr\Servlet\Http;
 use AppserverIo\Psr\HttpMessage\Protocol;
 use AppserverIo\Psr\Servlet\GenericServlet;
 use AppserverIo\Psr\Servlet\ServletException;
-use AppserverIo\Psr\Servlet\ServletRequest;
-use AppserverIo\Psr\Servlet\ServletResponse;
-use AppserverIo\Psr\Servlet\ServletSession;
-use AppserverIo\Psr\Servlet\ServletConfig;
+use AppserverIo\Psr\Servlet\ServletRequestInterface;
+use AppserverIo\Psr\Servlet\ServletResponseInterface;
 
 /**
  * Abstract Http servlet implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 abstract class HttpServlet extends GenericServlet
 {
@@ -49,8 +41,8 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http CONNECT method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @param \AppserverIo\Psr\Servlet\
      */
@@ -59,13 +51,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http CONNECT method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doConnect(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doConnect(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -73,13 +65,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http DELETE method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doDelete(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doDelete(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -87,13 +79,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http GET method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doGet(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doGet(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -101,13 +93,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http HEAD method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doHead(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doHead(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -115,13 +107,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http OPTIONS method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doOptions(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doOptions(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -129,13 +121,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http POST method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doPost(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doPost(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -143,13 +135,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http PUT method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doPut(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doPut(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -157,13 +149,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Implements Http TRACE method.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\Http\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
      */
-    public function doTrace(HttpServletRequest $servletRequest, HttpServletResponse $servletResponse)
+    public function doTrace(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
         throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
     }
@@ -171,13 +163,13 @@ abstract class HttpServlet extends GenericServlet
     /**
      * Delegation method for specific Http methods.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletRequest  $servletRequest  The request instance
-     * @param \AppserverIo\Psr\Servlet\ServletResponse $servletResponse The response instance
+     * @param \AppserverIo\Psr\Servlet\ServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\ServletResponseInterface $servletResponse The response instance
      *
      * @return void
      * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not available
      */
-    public function service(ServletRequest $servletRequest, ServletResponse $servletResponse)
+    public function service(ServletRequestInterface $servletRequest, ServletResponseInterface $servletResponse)
     {
 
         // pre-initialize response

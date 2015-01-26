@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
@@ -26,14 +23,11 @@ namespace AppserverIo\Psr\Servlet;
 /**
  * A servlet session implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 class ServletSessionWrapper
 {
@@ -41,18 +35,18 @@ class ServletSessionWrapper
     /**
      * The session instance.
      *
-     * @var \AppserverIo\Psr\Servlet\ServletSession
+     * @var \AppserverIo\Psr\Servlet\ServletSessionInterface
      */
     protected $session;
 
     /**
      * Injects the passed session instance into this servlet session wrapper.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletSession $session The session instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\ServletSessionInterface $session The session instance used for initialization
      *
      * @return void
      */
-    public function injectSession(ServletSession $session)
+    public function injectSession(ServletSessionInterface $session)
     {
         $this->session = $session;
     }
@@ -60,7 +54,7 @@ class ServletSessionWrapper
     /**
      * Returns the servlet session instance.
      *
-     * @return \AppserverIo\Psr\Servlet\ServletSession The session instance
+     * @return \AppserverIo\Psr\Servlet\ServletSessionInterface The session instance
      */
     public function getSession()
     {
@@ -148,7 +142,7 @@ class ServletSessionWrapper
     /**
      * Returns date and time after the session expires.
      *
-     * @return integer|DateTime The date and time after the session expires
+     * @return integer|\DateTime The date and time after the session expires
      */
     public function getLifetime()
     {
@@ -158,7 +152,7 @@ class ServletSessionWrapper
     /**
      * Sets date and time after the session expires.
      *
-     * @param integer|DateTime $lifetime The date and time after the session expires
+     * @param integer|\DateTime $lifetime The date and time after the session expires
      *
      * @return void
      */

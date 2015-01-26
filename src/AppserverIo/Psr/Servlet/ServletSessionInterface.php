@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\ServletSession
+ * AppserverIo\Psr\Servlet\ServletSessionInterface
  *
  * NOTICE OF LICENSE
  *
@@ -11,31 +11,25 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
 
 /**
- * Interfaces for all servlet sessions.
+ * Interface for all servlet sessions.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-interface ServletSession
+interface ServletSessionInterface
 {
     /**
      * The configuration key for probability the garbage collector will be invoked on the session.
@@ -156,14 +150,14 @@ interface ServletSession
     /**
      * Returns date and time after the session expires.
      *
-     * @return integer|DateTime The date and time after the session expires
+     * @return integer|\DateTime The date and time after the session expires
      */
     public function getLifetime();
 
     /**
      * Sets date and time after the session expires.
      *
-     * @param integer|DateTime $lifetime The date and time after the session expires
+     * @param integer|\DateTime $lifetime The date and time after the session expires
      *
      * @return void
      */
@@ -184,6 +178,15 @@ interface ServletSession
      * @return void
      */
     public function setMaximumAge($maximumAge);
+
+    /**
+     * Sets the session name.
+     *
+     * @param string $name The session name
+     *
+     * @return void
+     */
+    public function setName($name);
 
     /**
      * Returns the host to which the user agent will send this cookie.
@@ -248,6 +251,15 @@ interface ServletSession
      * @return void
      */
     public function setHttpOnly($httpOnly = true);
+
+    /**
+     * Sets the current session identifier.
+     *
+     * @param string $id The current session identifier
+     *
+     * @return void
+     */
+    public function setId($id);
 
     /**
      * Returns the data associated with the given key.
