@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
@@ -26,33 +23,30 @@ namespace AppserverIo\Psr\Servlet;
 /**
  * A servlet request implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-class ServletRequestWrapper implements ServletRequest
+class ServletRequestWrapper implements ServletRequestInterface
 {
 
     /**
      * The servlet request instance.
      *
-     * @var \AppserverIo\Psr\Servlet\ServletRequest
+     * @var \AppserverIo\Psr\Servlet\ServletRequestInterface
      */
     protected $request;
 
     /**
      * Injects the passed request instance into this servlet request.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletRequest $request The request instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\ServletRequestInterface $request The request instance used for initialization
      *
      * @return void
      */
-    public function injectRequest(ServletRequest $request)
+    public function injectRequest(ServletRequestInterface $request)
     {
         $this->request = $request;
     }
@@ -60,11 +54,11 @@ class ServletRequestWrapper implements ServletRequest
     /**
      * Sets the passed request instance into this servlet request.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletRequest $request The request instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\ServletRequestInterface $request The request instance used for initialization
      *
      * @return void
      */
-    public function setRequest(ServletRequest $request)
+    public function setRequest(ServletRequestInterface $request)
     {
         $this->request = $request;
     }
@@ -72,21 +66,11 @@ class ServletRequestWrapper implements ServletRequest
     /**
      * Returns the wrapped request object.
      *
-     * @return \AppserverIo\Psr\Servlet\ServletRequest The wrapped request object
+     * @return \AppserverIo\Psr\Servlet\ServletRequestInterface The wrapped request object
      */
     public function getRequest()
     {
         return $this->request;
-    }
-
-    /**
-     * Returns an part instance
-     *
-     * @return Part
-     */
-    public function getHttpPartInstance()
-    {
-        return $this->getRequest()->getHttpPartInstance();
     }
 
     /**
@@ -96,7 +80,7 @@ class ServletRequestWrapper implements ServletRequest
      */
     public function getParameterMap()
     {
-        return $this->getRequest()->getParams();
+        return $this->getRequest()->getParameterMap();
     }
 
     /**
@@ -139,11 +123,10 @@ class ServletRequestWrapper implements ServletRequest
      * @param integer $filter The filter to use
      *
      * @return string|null
-     * @todo Implement filter handling
      */
     public function getParameter($name, $filter = FILTER_SANITIZE_STRING)
     {
-        return $this->getRequest()->getParam($name);
+        return filter_var($this->getRequest()->getParameter($name), $filter);
     }
 
     /**

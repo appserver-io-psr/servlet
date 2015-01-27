@@ -1,3 +1,14 @@
+# Version 0.8.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Unified the interface naming conventions
+* Moved to new documentation schema
+
 # Version 0.7.0
 
 ## Bugfixes

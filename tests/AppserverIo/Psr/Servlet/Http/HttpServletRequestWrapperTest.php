@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
@@ -26,14 +23,11 @@ namespace AppserverIo\Psr\Servlet\Http;
 /**
  * Test for Http servlet request wrapper implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 class HttpServletRequestWrapperTest extends \PHPUnit_Framework_TestCase
 {
@@ -47,7 +41,7 @@ class HttpServletRequestWrapperTest extends \PHPUnit_Framework_TestCase
     {
 
         // create a stub for the HttpServletRequest interface
-        $stub = $this->getMock('\AppserverIo\Psr\Servlet\Http\HttpServletRequest');
+        $stub = $this->getMock('\AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface');
 
         // configure the stub
         $stub->expects($this->any())

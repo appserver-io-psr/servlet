@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet;
@@ -26,22 +23,19 @@ namespace AppserverIo\Psr\Servlet;
 /**
  * Abstract servlet implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-abstract class GenericServlet implements Servlet
+abstract class GenericServlet implements ServletInterface
 {
 
     /**
      * The servlet configuration.
      *
-     * @var \AppserverIo\Psr\Servlet\ServletConfig
+     * @var \AppserverIo\Psr\Servlet\ServletConfigInterface
      */
     protected $servletConfig;
 
@@ -55,11 +49,11 @@ abstract class GenericServlet implements Servlet
     /**
      * Initializes the servlet with the passed configuration.
      *
-     * @param \AppserverIo\Psr\Servlet\ServletConfig $servletConfig The configuration to initialize the servlet with
+     * @param \AppserverIo\Psr\Servlet\ServletConfigInterface $servletConfig The configuration to initialize the servlet with
      *
      * @return void
      */
-    public function init(ServletConfig $servletConfig)
+    public function init(ServletConfigInterface $servletConfig)
     {
         $this->servletConfig = $servletConfig;
     }
@@ -67,7 +61,7 @@ abstract class GenericServlet implements Servlet
     /**
      * Returns the servlet configuration.
      *
-     * @return \AppserverIo\Psr\Servlet\ServletConfig The servlet configuration
+     * @return \AppserverIo\Psr\Servlet\ServletConfigInterface The servlet configuration
      */
     public function getServletConfig()
     {
@@ -88,7 +82,7 @@ abstract class GenericServlet implements Servlet
     /**
      * Returns the servlet context instance.
      *
-     * @return \AppserverIo\Psr\Servlet\ServletContext The servlet context instance
+     * @return \AppserverIo\Psr\Servlet\ServletContextInterface The servlet context instance
      */
     public function getServletContext()
     {

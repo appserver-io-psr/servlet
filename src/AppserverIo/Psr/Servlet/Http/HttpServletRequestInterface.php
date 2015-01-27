@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Http\HttpServletRequestWrapper
+ * AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface
  *
  * NOTICE OF LICENSE
  *
@@ -11,19 +11,16 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
 
-use AppserverIo\Psr\Servlet\ServletRequest;
+use AppserverIo\Psr\Servlet\ServletRequestInterface;
 use AppserverIo\Psr\HttpMessage\RequestInterface;
 
 /**
@@ -49,16 +46,13 @@ use AppserverIo\Psr\HttpMessage\RequestInterface;
  *   getServletPath(): /images.do
  *   getPathInfo():    /static/images/logo.png
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-interface HttpServletRequest extends ServletRequest, RequestInterface
+interface HttpServletRequestInterface extends ServletRequestInterface, RequestInterface
 {
 
     /**
@@ -101,7 +95,7 @@ interface HttpServletRequest extends ServletRequest, RequestInterface
      *
      * @param boolean $create TRUE to create a new session, else FALSE
      *
-     * @return \AppserverIo\Psr\Servlet\Http\HttpSession The session instance
+     * @return \AppserverIo\Psr\Servlet\Http\HttpSessionInterface The session instance
      */
     public function getSession($create = false);
 
@@ -111,6 +105,13 @@ interface HttpServletRequest extends ServletRequest, RequestInterface
      * @return string the absolute path info
      */
     public function getPathInfo();
+
+    /**
+     * Returns an part instance
+     *
+     * @return \AppserverIo\Psr\HttpMessage\PartInterface
+     */
+    public function getHttpPartInstance();
 
     /**
      * Returns the server name.

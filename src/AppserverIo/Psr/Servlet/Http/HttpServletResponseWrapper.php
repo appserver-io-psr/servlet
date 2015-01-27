@@ -11,14 +11,11 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
@@ -29,26 +26,23 @@ use AppserverIo\Psr\Servlet\ServletResponseWrapper;
 /**
  * A Http servlet response implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpServletResponse
+class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpServletResponseInterface
 {
 
     /**
      * Injects the passed response instance into this servlet response.
      *
-     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponse $response The response instance used for initialization
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $response The response instance used for initialization
      *
      * @return void
      */
-    public function injectHttpResponse(HttpServletResponse $response)
+    public function injectHttpResponse(HttpServletResponseInterface $response)
     {
         $this->injectResponse($response);
     }
@@ -91,7 +85,7 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
     }
 
     /**
-     * Set's the headers
+     * Sets the headers
      *
      * @param array $headers The headers array
      *
@@ -103,7 +97,7 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
     }
 
     /**
-     * Return's the headers array
+     * Returns the headers array
      *
      * @return array
      */
@@ -113,7 +107,7 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
     }
 
     /**
-     * Add's a header to array
+     * Adds a header to array
      *
      * @param string     $header The header label e.g. Accept or Content-Length
      * @param string|int $value  The header value
@@ -138,7 +132,7 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
     }
 
     /**
-     * Return's the headers as string
+     * Returns the headers as string
      *
      * @return string
      */
@@ -169,6 +163,16 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
     public function hasHeader($name)
     {
         return $this->getResponse()->hasHeader($name);
+    }
+
+    /**
+     * Returns the response that will be send back to the client.
+     *
+     * @return \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface The response instance
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 
     /**
@@ -214,7 +218,7 @@ class HttpServletResponseWrapper extends ServletResponseWrapper implements HttpS
      */
     public function resetBodyStream()
     {
-        return $this->getResponse()->resetBodyStream();
+        $this->getResponse()->resetBodyStream();
     }
 
     /**

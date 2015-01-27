@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Http\HttpServletResponseWrapper
+ * AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface
  *
  * NOTICE OF LICENSE
  *
@@ -11,35 +11,29 @@
  *
  * PHP version 5
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
 
 namespace AppserverIo\Psr\Servlet\Http;
 
-use AppserverIo\Psr\Servlet\ServletResponse;
+use AppserverIo\Psr\Servlet\ServletResponseInterface;
 use AppserverIo\Psr\HttpMessage\CookieInterface;
 use AppserverIo\Psr\HttpMessage\ResponseInterface;
 
 /**
  * A Http servlet response implementation.
  *
- * @category   Appserver
- * @package    Psr
- * @subpackage Servlet
- * @author     Tim Wagner <tw@appserver.io>
- * @copyright  2014 TechDivision GmbH <info@appserver.io>
- * @license    http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link       https://github.com/appserver-io-psr/servlet
- * @link       http://www.appserver.io
+ * @author    Tim Wagner <tw@appserver.io>
+ * @copyright 2015 TechDivision GmbH <info@appserver.io>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/appserver-io-psr/servlet
+ * @link      http://www.appserver.io
  */
-interface HttpServletResponse extends ServletResponse, ResponseInterface
+interface HttpServletResponseInterface extends ServletResponseInterface, ResponseInterface
 {
 
     /**
@@ -104,6 +98,13 @@ interface HttpServletResponse extends ServletResponse, ResponseInterface
      * @return string|null
      */
     public function getHeader($key);
+
+    /**
+     * Returns the headers as string
+     *
+     * @return string
+     */
+    public function getHeadersAsString();
 
     /**
      * Removes one single header from the headers array.
