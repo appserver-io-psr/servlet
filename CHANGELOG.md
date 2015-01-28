@@ -1,3 +1,13 @@
+# Version 0.8.1
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Upgraded dependency of appserver-io-psr/http-message
+
 # Version 0.8.0
 
 ## Bugfixes
