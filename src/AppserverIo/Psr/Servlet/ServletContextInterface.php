@@ -109,4 +109,11 @@ interface ServletContextInterface
      * @return string The webapp base path
      */
     public function getWebappPath();
+    
+    /**
+     * Returns the application this servlet context belongs to.
+     *
+     * @return AppserverIo\Psr\Application\ApplicationInterface
+     */
+    public function getApplication();
 }
