@@ -1,3 +1,13 @@
+# Version 1.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switched to stable dependencies due to version 1.0.0 release
+
 # Version 0.8.1
 
 ## Bugfixes

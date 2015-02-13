@@ -17,11 +17,11 @@
 	],
 	"require" : {
 		"php" : ">=5.4.0",
-		"appserver-io/lang" : "0.1.*",
-		"appserver-io-psr/http-message" : "0.2.*"
+		"appserver-io/lang" : "~1.0",
+		"appserver-io-psr/http-message" : "~1.0"
 	},
 	"require-dev" : {
-		"appserver-io/build" : "0.2.*"
+		"appserver-io/build" : "~1.0"
 	},
 	"autoload" : {
 		"psr-0" : {
