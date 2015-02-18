@@ -1,3 +1,13 @@
+# Version 1.1.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Move Descriptor implementations from appserver-io/appserver to this package
+
 # Version 1.0.0
 
 ## Bugfixes
