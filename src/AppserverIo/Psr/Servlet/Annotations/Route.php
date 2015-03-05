@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Annotations\Route
+ * \AppserverIo\Psr\Servlet\Annotations\Route
  *
  * NOTICE OF LICENSE
  *

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Annotations\AnnotationKeys
+ * \AppserverIo\Psr\Servlet\Annotations\AnnotationKeys
  *
  * NOTICE OF LICENSE
  *

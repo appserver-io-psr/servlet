@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\SessionUtils
+ * \AppserverIo\Psr\Servlet\SessionUtils
  *
  * NOTICE OF LICENSE
  *

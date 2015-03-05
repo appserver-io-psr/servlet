@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\ServletSessionWrapper
+ * \AppserverIo\Psr\Servlet\ServletSessionWrapper
  *
  * NOTICE OF LICENSE
  *

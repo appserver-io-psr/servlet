@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\IllegalStateException
+ * \AppserverIo\Psr\Servlet\IllegalStateException
  *
  * NOTICE OF LICENSE
  *

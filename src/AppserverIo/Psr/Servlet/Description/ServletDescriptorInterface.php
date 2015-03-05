@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Description\ServletDescriptorInterface
+ * \AppserverIo\Psr\Servlet\Description\ServletDescriptorInterface
  *
  * NOTICE OF LICENSE
  *
@@ -28,6 +28,11 @@ namespace AppserverIo\Psr\Servlet\Description;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io/servlet
  * @link      http://www.appserver.io
+ *
+ * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
+ * be introduced in the next MAJOR release of this PSR
+ *
+ * @method null addUrlPattern() addUrlPattern(string $urlPattern) Adds a URL pattern
  */
 interface ServletDescriptorInterface
 {
@@ -99,7 +104,7 @@ interface ServletDescriptorInterface
      * Merges the passed configuration into this one. Configuration values
      * of the passed configuration will overwrite the this one.
      *
-     * @param AppserverIo\Psr\Servlet\Description\ServletDescriptorInterface $servletDescriptor The configuration to merge
+     * @param \AppserverIo\Psr\Servlet\Description\ServletDescriptorInterface $servletDescriptor The configuration to merge
      *
      * @return void
      */

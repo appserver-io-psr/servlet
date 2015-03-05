@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\ServletSessionInterface
+ * \AppserverIo\Psr\Servlet\ServletSessionInterface
  *
  * NOTICE OF LICENSE
  *
@@ -28,9 +28,15 @@ namespace AppserverIo\Psr\Servlet;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
+ *
+ * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
+ * be introduced in the next MAJOR release of this PSR
+ *
+ * @method \AppserverIo\Psr\Servlet\ServletSessionInterface emptyInstance()        emptyInstance() Creates a new and empty session instance
  */
 interface ServletSessionInterface
 {
+
     /**
      * The configuration key for probability the garbage collector will be invoked on the session.
      *

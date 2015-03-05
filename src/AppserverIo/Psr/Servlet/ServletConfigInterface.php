@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\ServletConfigInterface
+ * \AppserverIo\Psr\Servlet\ServletConfigInterface
  *
  * NOTICE OF LICENSE
  *
