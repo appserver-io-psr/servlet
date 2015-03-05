@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface
+ * \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface
  *
  * NOTICE OF LICENSE
  *
@@ -51,6 +51,51 @@ use AppserverIo\Psr\HttpMessage\RequestInterface;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
+ *
+ * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
+ * be introduced in the next MAJOR release of this PSR
+ *
+ * @method null        __cleanup()               __cleanup() Cleanup method that allows manual garbage collection
+ * @method null        addCookie()               addCookie(\AppserverIo\Psr\HttpMessage\CookieInterface $cookie) Adds the passed cookie to this request
+ * @method null        addHeader()               addHeader(string $name, string $value) Adds a header information got from connection
+ * @method null        addPart()                 addPart(\AppserverIo\Appserver\ServletEngine\Http\Part $part, string $name = null) Adds a part to the parts collection
+ * @method string      getBodyContent()          getBodyContent() Return content
+ * @method resource    getBodyStream()           getBodyStream() Returns the body stream as a resource
+ * @method \AppserverIo\Psr\Context\ContextInterface getContext() getContext() Returns the context that allows access to session and server information
+ * @method \AppserverIo\Psr\HttpMessage\RequestInterface getHttpRequest() getHttpRequest() Returns the Http request instance
+ * @method string      getMethod()               getMethod() Returns request method
+ * @method string|null getParameter()            getParameter(string $name, integer $filter = FILTER_SANITIZE_STRING) Returns the parameter with the passed name if available or null if the parameter not exists
+ * @method array       getParameterMap()         getParameterMap() Returns an array with all request parameters
+ * @method \AppserverIo\Http\HttpPart getPart()  getPart(string $name) Returns a part object by given name
+ * @method array       getParts()                getParts() Returns the parts collection as array
+ * @method string      getRequestedSessionId()   getRequestedSessionId() Return the session identifier included in this request, if any
+ * @method string      getRequestedSessionName() getRequestedSessionName() Return the session name included in this request, if any
+ * @method \AppserverIo\Appserver\ServletEngine\Http\RequestContextInterface getRequestHandler() getRequestHandler() Returns the context that allows access to session and server information
+ * @method \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface getResponse() getResponse() Returns the servlet response bound to this request
+ * @method mixed       getServerVar()            getServerVar(string $name) Returns the server variable with the requested name
+ * @method \AppserverIo\Storage\GenericStackable getServerVars() getServerVars() Returns the array with the server variables
+ * @method string      getUri()                  getUri() Returns request uri
+ * @method string      getVersion()              getVersion() Returns protocol version
+ * @method boolean     hasHeader()               hasHeader(string $name) Checks if header exists by given name
+ * @method boolean     hasParameter()            hasParameter(string $name) Queries whether the request contains a parameter or not
+ * @method null        injectContext()           injectContext(\AppserverIo\Psr\Context\ContextInterface $context) Injects the context that allows access to session and server information
+ * @method null        injectHttpRequest()       injectHttpRequest(\AppserverIo\Psr\HttpMessage\RequestInterface $httpRequest)
+ * @method null        injectResponse()          injectResponse(\AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $response) Injects the servlet response bound to this request
+ * @method null        injectServerVars()        injectServerVars(\AppserverIo\Storage\GenericStackable $serverVars) Injects the server variables
+ * @method boolean     isDispatched()            isDispatched() Sets the flag that shows if the request has already been dispatched
+ * @method null        setBaseModifier()         setBaseModifier(string $baseModifier) Set the base modifier
+ * @method null        setBodyStream()           setBodyStream(resource $bodyStream) Resets the stream resource pointing to body content
+ * @method null        setContextPath()          setContextPath(string $contextPath) Sets the application context name (application name prefixed with a slash) for the actual request
+ * @method null        setDispatched()           setDispatched(boolean $dispatched = true) Sets the flag to mark the request dispatched
+ * @method null        setHeaders()              setHeaders(array $headers) Set headers data
+ * @method null        setMethod()               setMethod(string $method) Sets the method to be performed on the resource identified by the Request-URI
+ * @method null        setParameterMap()         setParameterMap(array $parameterMap) Returns an array with all request parameters
+ * @method null        setPathInfo()             setPathInfo(string $pathInfo) Sets the absolute path info started from the context path
+ * @method null        setRequestedSessionId()   setRequestedSessionId(string $requestedSessionId) Set the requested session ID for this request.  This is normally called by the HTTP Connector, when it parses the request headers
+ * @method null        setRequestedSessionName() setRequestedSessionName(string $requestedSessionName) Set the requested session name for this request
+ * @method null        setServletPath()          setServletPath(string $servletPath) Sets the path to the servlet used to handle this request
+ * @method null        setUri()                  setUri(string $uri) Sets the URI
+ * @method null        setVersion()              setVersion($version) Set protocol version
  */
 interface HttpServletRequestInterface extends ServletRequestInterface, RequestInterface
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface
+ * \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface
  *
  * NOTICE OF LICENSE
  *
@@ -32,6 +32,24 @@ use AppserverIo\Psr\HttpMessage\ResponseInterface;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
+ *
+ * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
+ * be introduced in the next MAJOR release of this PSR
+ *
+ * @method null            appendBodyStream()      appendBodyStream(string $content) Appends the content
+ * @method integer         copyBodyStream()        copyBodyStream(resource $sourceStream, integer $maxlength = null, integer $offset = 0) Copies a source stream to body stream
+ * @method string          getBodyContent()        getBodyContent() Return content
+ * @method resource        getBodyStream()         getBodyStream() Returns the body stream as a resource
+ * @method \ArrayAccess    getCookies()            getCookies() Returns the cookies
+ * @method \Exception|null getException()          getException() Returns the exception bound to the response
+ * @method integer         getState()              getState() Returns the current state
+ * @method boolean         hasException()          hasException() Queries whether the response contains an exception or not
+ * @method boolean         hasState()              hasState(integer $state) Compares current state with given state
+ * @method null            redirect()              redirect(string $url, integer $code = 301) Redirects to the passed URL by adding a 'Location' header and setting the appropriate status code, by default 301
+ * @method null            setBodyStream()         setBodyStream(resource $bodyStream) Resets the stream resource pointing to body content
+ * @method null            setException()          setException(\Exception $exception) Binds the exception to the response
+ * @method null            setState()              setState(integer $state) Sets state of response
+ * @method null            setStatusReasonPhrase() setStatusReasonPhrase(string $statusReasonPhrase) Sets the status reason phrase
  */
 interface HttpServletResponseInterface extends ServletResponseInterface, ResponseInterface
 {
