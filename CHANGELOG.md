@@ -1,3 +1,13 @@
+# Version 1.3.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Added method hinting for ServletDescriptorInterface common implementations
+
 # Version 1.2.0
 
 ## Bugfixes

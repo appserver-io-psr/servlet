@@ -32,7 +32,8 @@ namespace AppserverIo\Psr\Servlet\Description;
  * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
  * be introduced in the next MAJOR release of this PSR
  *
- * @method null addUrlPattern() addUrlPattern(string $urlPattern) Adds a URL pattern
+ * @method null  addUrlPattern()                addUrlPattern(string $urlPattern) Adds a URL pattern
+ * @method array getPersistenceUnitReferences() getPersistenceUnitReferences()    The array with the persistence unit references.
  */
 interface ServletDescriptorInterface
 {
