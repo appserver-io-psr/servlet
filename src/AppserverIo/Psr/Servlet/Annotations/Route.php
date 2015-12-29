@@ -51,12 +51,18 @@ class Route extends ReflectionAnnotation
     public function __construct($annotationName, array $values = array())
     {
 
-        // initialize the array values
-        $this->values[AnnotationKeys::URL_PATTERN] = array();
-        $this->values[AnnotationKeys::INIT_PARAMS] = array();
-
         // pass values to parent constructor
         parent::__construct($annotationName, $values);
+
+        // initialize the URL pattern values
+        if (!isset($this->values[AnnotationKeys::URL_PATTERN])) {
+            $this->values[AnnotationKeys::URL_PATTERN] = array();
+        }
+
+        // initialize the initialization parameter values
+        if (!isset($this->values[AnnotationKeys::INIT_PARAMS])) {
+            $this->values[AnnotationKeys::INIT_PARAMS] = array();
+        }
     }
 
     /**

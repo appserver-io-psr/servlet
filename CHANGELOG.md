@@ -1,3 +1,13 @@
+# Version 1.3.1
+
+## Bugfixes
+
+* Fixed required initParams attribute when using @Route annotation
+
+## Features
+
+* None
+
 # Version 1.3.0
 
 ## Bugfixes
