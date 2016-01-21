@@ -1,3 +1,13 @@
+# Version 1.3.2
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Use oject class instead for __CLASS__ for do*() method exceptions in HttpServlet implementation
+
 # Version 1.3.1
 
 ## Bugfixes
