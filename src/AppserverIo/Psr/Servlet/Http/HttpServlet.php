@@ -59,7 +59,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doConnect(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -73,7 +73,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doDelete(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -87,7 +87,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doGet(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -101,7 +101,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doHead(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -115,7 +115,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doOptions(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -129,7 +129,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doPost(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -143,7 +143,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doPut(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
@@ -157,7 +157,7 @@ abstract class HttpServlet extends GenericServlet
      */
     public function doTrace(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
     {
-        throw new ServletException(sprintf('Method %s is not implemented in this servlet.', __METHOD__));
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
     }
 
     /**
