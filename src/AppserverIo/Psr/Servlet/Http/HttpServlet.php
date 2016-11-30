@@ -161,6 +161,20 @@ abstract class HttpServlet extends GenericServlet
     }
 
     /**
+     * Implements Http PATCH method.
+     *
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletRequestInterface  $servletRequest  The request instance
+     * @param \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $servletResponse The response instance
+     *
+     * @return void
+     * @throws \AppserverIo\Psr\Servlet\ServletException Is thrown if the request method is not implemented
+     */
+    public function doPatch(HttpServletRequestInterface $servletRequest, HttpServletResponseInterface $servletResponse)
+    {
+        throw new ServletException(sprintf('Method %s is not implemented in servlet %s.', __METHOD__, get_class($this)));
+    }
+
+    /**
      * Delegation method for specific Http methods.
      *
      * @param \AppserverIo\Psr\Servlet\ServletRequestInterface  $servletRequest  The request instance
@@ -200,6 +214,9 @@ abstract class HttpServlet extends GenericServlet
                 break;
             case Protocol::METHOD_TRACE:
                 $this->doTrace($servletRequest, $servletResponse);
+                break;
+            case Protocol::METHOD_PATCH:
+                $this->doPatch($servletRequest, $servletResponse);
                 break;
             default:
                 throw new ServletException(

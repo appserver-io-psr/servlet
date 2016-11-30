@@ -37,19 +37,6 @@ use AppserverIo\Psr\HttpMessage\ResponseInterface;
  * be introduced in the next MAJOR release of this PSR
  *
  * @method null            appendBodyStream()      appendBodyStream(string $content) Appends the content
- * @method integer         copyBodyStream()        copyBodyStream(resource $sourceStream, integer $maxlength = null, integer $offset = 0) Copies a source stream to body stream
- * @method string          getBodyContent()        getBodyContent() Return content
- * @method resource        getBodyStream()         getBodyStream() Returns the body stream as a resource
- * @method \ArrayAccess    getCookies()            getCookies() Returns the cookies
- * @method \Exception|null getException()          getException() Returns the exception bound to the response
- * @method integer         getState()              getState() Returns the current state
- * @method boolean         hasException()          hasException() Queries whether the response contains an exception or not
- * @method boolean         hasState()              hasState(integer $state) Compares current state with given state
- * @method null            redirect()              redirect(string $url, integer $code = 301) Redirects to the passed URL by adding a 'Location' header and setting the appropriate status code, by default 301
- * @method null            setBodyStream()         setBodyStream(resource $bodyStream) Resets the stream resource pointing to body content
- * @method null            setException()          setException(\Exception $exception) Binds the exception to the response
- * @method null            setState()              setState(integer $state) Sets state of response
- * @method null            setStatusReasonPhrase() setStatusReasonPhrase(string $statusReasonPhrase) Sets the status reason phrase
  */
 interface HttpServletResponseInterface extends ServletResponseInterface, ResponseInterface
 {
@@ -184,4 +171,122 @@ interface HttpServletResponseInterface extends ServletResponseInterface, Respons
      * @return void
      */
     public function setStatusCode($code);
+
+    /**
+     * Appends the content.
+     *
+     * @param string $content The content to append
+     *
+     * @return void
+     */
+    public function appendBodyStream($content);
+
+    /**
+     * Copies a source stream to body stream.
+     *
+     * @param resource $sourceStream The file pointer to source stream
+     * @param integer  $maxlength    The max length to read from source stream
+     * @param integer  $offset       The offset from source stream to read
+     *
+     * @return integer The total number of bytes copied
+     */
+    public function copyBodyStream($sourceStream, $maxlength = null, $offset = 0);
+
+    /**
+     * Returns the body content.
+     *
+     * @return string The boda content
+     */
+    public function getBodyContent();
+
+    /**
+     * Returns the body stream as a resource.
+     *
+     * @return resource The body stream
+     */
+    public function getBodyStream();
+
+    /**
+     * Returns the cookies.
+     *
+     * @return array The cookies
+     */
+    public function getCookies();
+
+    /**
+     * Returns the exception bound to the response.
+     *
+     * @return \Exception|null The exception
+     */
+    public function getException();
+
+    /**
+     * Returns the current state
+     *
+     * @return int
+     */
+    public function getState();
+
+    /**
+     * Queries whether the response contains an exception or not.
+     *
+     * @return boolean TRUE if an exception has been attached, else FALSE
+     */
+    public function hasException();
+
+    /**
+     * Compares current state with given state
+     *
+     * @param int $state The state to compare with
+     *
+     * @return bool Whether state is equal (true) or not (false)
+     */
+    public function hasState($state);
+
+    /**
+     * Redirects to the passed URL by adding a 'Location' header and
+     * setting the appropriate status code, by default 301.
+     *
+     * @param string  $url  The URL to forward to
+     * @param integer $code The status code to set
+     *
+     * @return void
+     */
+    public function redirect($url, $code = 301);
+
+    /**
+     * Resetss the stream resource pointing to body content.
+     *
+     * @param resource $bodyStream The body content stream resource
+     *
+     * @return void
+     */
+    public function setBodyStream($bodyStream);
+
+    /**
+     * Binds the exception to the response.
+     *
+     * @param \Exception $exception The exception to bind.
+     *
+     * @return void
+     */
+    public function setException(\Exception $exception);
+
+    /**
+     * Sets state of response
+     *
+     * @param int $state The state value
+     *
+     * @return void
+     */
+    public function setState($state);
+
+    /**
+     * Sets the status reason phrase
+     *
+     * @param string $statusReasonPhrase The reason phrase
+     *
+     * @return void
+     */
+    public function setStatusReasonPhrase($statusReasonPhrase);
 }
