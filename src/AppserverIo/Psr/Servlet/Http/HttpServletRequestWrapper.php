@@ -520,7 +520,7 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
      *
      * @return void
      */
-    public function setParameterMap($parameterMap)
+    public function setParameterMap(array $parameterMap)
     {
         $this->getRequest()->setParameterMap($parameterMap);
     }
