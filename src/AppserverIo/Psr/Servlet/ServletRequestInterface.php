@@ -28,12 +28,6 @@ namespace AppserverIo\Psr\Servlet;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
- *
- * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
- * be introduced in the next MAJOR release of this PSR
- *
- * @method string getPathInfo()    getPathInfo() Returns the absolute path info started from the context path
- * @method string getServletPath() getServletPath() Returns the path to the servlet used to handle this request
  */
 interface ServletRequestInterface
 {
@@ -110,4 +104,18 @@ interface ServletRequestInterface
      * @return void
      */
     public function setDispatched($dispatched = true);
+
+    /**
+     * Returns the absolute path info started from the context path.
+     *
+     * @return string The absolute path
+     */
+    public function getPathInfo();
+
+    /**
+     * Returns the path to the servlet used to handle this request.
+     *
+     * @return string The path to the servlet
+     */
+    public function getServletPath();
 }

@@ -20,11 +20,13 @@
 
 namespace AppserverIo\Psr\Servlet\Http;
 
-use AppserverIo\Psr\Servlet\ServletRequestInterface;
+use AppserverIo\Psr\HttpMessage\PartInterface;
+use AppserverIo\Psr\HttpMessage\CookieInterface;
 use AppserverIo\Psr\HttpMessage\RequestInterface;
+use AppserverIo\Psr\Servlet\ServletRequestInterface;
 
 /**
- * A servlet request implementation.
+ * The servlet request interface.
  *
  * Here are some examples of the expected results:
  *
@@ -51,51 +53,6 @@ use AppserverIo\Psr\HttpMessage\RequestInterface;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
- *
- * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
- * be introduced in the next MAJOR release of this PSR
- *
- * @method null        __cleanup()               __cleanup() Cleanup method that allows manual garbage collection
- * @method null        addCookie()               addCookie(\AppserverIo\Psr\HttpMessage\CookieInterface $cookie) Adds the passed cookie to this request
- * @method null        addHeader()               addHeader(string $name, string $value) Adds a header information got from connection
- * @method null        addPart()                 addPart(\AppserverIo\Appserver\ServletEngine\Http\Part $part, string $name = null) Adds a part to the parts collection
- * @method string      getBodyContent()          getBodyContent() Return content
- * @method resource    getBodyStream()           getBodyStream() Returns the body stream as a resource
- * @method \AppserverIo\Psr\Context\ContextInterface getContext() getContext() Returns the context that allows access to session and server information
- * @method \AppserverIo\Psr\HttpMessage\RequestInterface getHttpRequest() getHttpRequest() Returns the Http request instance
- * @method string      getMethod()               getMethod() Returns request method
- * @method string|null getParameter()            getParameter(string $name, integer $filter = FILTER_SANITIZE_STRING) Returns the parameter with the passed name if available or null if the parameter not exists
- * @method array       getParameterMap()         getParameterMap() Returns an array with all request parameters
- * @method \AppserverIo\Http\HttpPart getPart()  getPart(string $name) Returns a part object by given name
- * @method array       getParts()                getParts() Returns the parts collection as array
- * @method string      getRequestedSessionId()   getRequestedSessionId() Return the session identifier included in this request, if any
- * @method string      getRequestedSessionName() getRequestedSessionName() Return the session name included in this request, if any
- * @method \AppserverIo\Appserver\ServletEngine\Http\RequestContextInterface getRequestHandler() getRequestHandler() Returns the context that allows access to session and server information
- * @method \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface getResponse() getResponse() Returns the servlet response bound to this request
- * @method mixed       getServerVar()            getServerVar(string $name) Returns the server variable with the requested name
- * @method \AppserverIo\Storage\GenericStackable getServerVars() getServerVars() Returns the array with the server variables
- * @method string      getUri()                  getUri() Returns request uri
- * @method string      getVersion()              getVersion() Returns protocol version
- * @method boolean     hasHeader()               hasHeader(string $name) Checks if header exists by given name
- * @method boolean     hasParameter()            hasParameter(string $name) Queries whether the request contains a parameter or not
- * @method null        injectContext()           injectContext(\AppserverIo\Psr\Context\ContextInterface $context) Injects the context that allows access to session and server information
- * @method null        injectHttpRequest()       injectHttpRequest(\AppserverIo\Psr\HttpMessage\RequestInterface $httpRequest)
- * @method null        injectResponse()          injectResponse(\AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface $response) Injects the servlet response bound to this request
- * @method null        injectServerVars()        injectServerVars(\AppserverIo\Storage\GenericStackable $serverVars) Injects the server variables
- * @method boolean     isDispatched()            isDispatched() Sets the flag that shows if the request has already been dispatched
- * @method null        setBaseModifier()         setBaseModifier(string $baseModifier) Set the base modifier
- * @method null        setBodyStream()           setBodyStream(resource $bodyStream) Resets the stream resource pointing to body content
- * @method null        setContextPath()          setContextPath(string $contextPath) Sets the application context name (application name prefixed with a slash) for the actual request
- * @method null        setDispatched()           setDispatched(boolean $dispatched = true) Sets the flag to mark the request dispatched
- * @method null        setHeaders()              setHeaders(array $headers) Set headers data
- * @method null        setMethod()               setMethod(string $method) Sets the method to be performed on the resource identified by the Request-URI
- * @method null        setParameterMap()         setParameterMap(array $parameterMap) Returns an array with all request parameters
- * @method null        setPathInfo()             setPathInfo(string $pathInfo) Sets the absolute path info started from the context path
- * @method null        setRequestedSessionId()   setRequestedSessionId(string $requestedSessionId) Set the requested session ID for this request.  This is normally called by the HTTP Connector, when it parses the request headers
- * @method null        setRequestedSessionName() setRequestedSessionName(string $requestedSessionName) Set the requested session name for this request
- * @method null        setServletPath()          setServletPath(string $servletPath) Sets the path to the servlet used to handle this request
- * @method null        setUri()                  setUri(string $uri) Sets the URI
- * @method null        setVersion()              setVersion($version) Set protocol version
  */
 interface HttpServletRequestInterface extends ServletRequestInterface, RequestInterface
 {
@@ -206,4 +163,289 @@ interface HttpServletRequestInterface extends ServletRequestInterface, RequestIn
      * @return \AppserverIo\Psr\HttpMessage\CookieInterface The cookie instance
      */
     public function getCookie($cookieName);
+
+    /**
+     * Adds the passed cookie to this request.
+     *
+     * @param \AppserverIo\Psr\HttpMessage\CookieInterface $cookie The cookie to add
+     *
+     * @return void
+     */
+    public function addCookie(CookieInterface $cookie);
+
+    /**
+     * Adds a header information got from connection.
+     *
+     * @param string $name  The header name
+     * @param string $value The headers value
+     *
+     * @return void
+     */
+    public function addHeader($name, $value);
+
+    /**
+     * Adds a part to the parts collection.
+     *
+     * @param \AppserverIo\Appserver\ServletEngine\Http\Part $part A form part object
+     * @param string                                         $name A manually defined name
+     *
+     * @return void
+     */
+    public function addPart(PartInterface $part, $name = null);
+
+    /**
+     * Returns the body content as string.
+     *
+     * @return string The body content
+     */
+    public function getBodyContent();
+
+    /**
+     * Returns the body stream as a resource.
+     *
+     * @return resource The body stream
+     */
+    public function getBodyStream();
+
+    /**
+     * Returns the Http request instance.
+     *
+     * @return \AppserverIo\Psr\HttpMessage\RequestInterface The Http request instance
+     */
+    public function getHttpRequest();
+
+    /**
+     * Returns the request method.
+     *
+     * @return string The request method
+     */
+    public function getMethod();
+
+    /**
+     * Returns an array with all request parameters.
+     *
+     * @return array The array with the request parameters
+     */
+    public function getParameterMap();
+
+    /**
+     * Returns the parameter with the passed name if available or null
+     * if the parameter not exists.
+     *
+     * @param string  $name   The name of the parameter to return
+     * @param integer $filter The filter to use
+     *
+     * @return string|null
+     */
+    public function getParameter($name, $filter = FILTER_SANITIZE_STRING);
+
+    /**
+     * Returns a part object by given name
+     *
+     * @param string $name The name of the form part
+     *
+     * @return \AppserverIo\Http\HttpPart
+     */
+    public function getPart($name);
+
+    /**
+     * Returns the parts collection as array
+     *
+     * @return array A collection of HttpPart objects
+     */
+    public function getParts();
+
+    /**
+     * Return the session identifier included in this request, if any.
+     *
+     * @return string The session identifier included in this request
+     */
+    public function getRequestedSessionId();
+
+    /**
+     * Return the session name included in this request, if any.
+     *
+     * @return string The session name included in this request
+     */
+    public function getRequestedSessionName();
+
+    /**
+     * Returns the servlet response bound to this request.
+     *
+     * @return \AppserverIo\Psr\Servlet\Http\HttpServletResponseInterface The response instance
+     */
+    public function getResponse();
+
+    /**
+     * Returns the server variable with the requested name.
+     *
+     * @param string $name The name of the server variable to be returned
+     *
+     * @return mixed The requested server variable
+     */
+    public function getServerVar($name);
+
+    /**
+     * Returns the array with the server variables.
+     *
+     * @return array The array with the server variables
+     */
+    public function getServerVars();
+
+    /**
+     * Returns the request URI.
+     *
+     * @return string The request URI
+     */
+    public function getUri();
+
+    /**
+     * Returns the protocol version.
+     *
+     * @return string The protocol version
+     */
+    public function getVersion();
+
+    /**
+     * Checks if header exists by given name.
+     *
+     * @param string $name The header name to check
+     *
+     * @return boolean
+     */
+    public function hasHeader($name);
+
+    /**
+     * Queries whether the request contains a parameter or not.
+     *
+     * @param string $name The name of the param we're query for
+     *
+     * @return boolean TRUE if the parameter is available, else FALSE
+     */
+    public function hasParameter($name);
+
+    /**
+     * Sets the flag that shows if the request has already been dispatched.
+     *
+     * @return boolean TRUE if the request has already been dispatched, else FALSE
+     */
+    public function isDispatched();
+
+    /**
+     * Set Base modifier which allows for base path generation within rewritten URL environments.
+     *
+     * @param string $baseModifier The base modifier
+     *
+     * @return void
+     */
+    public function setBaseModifier($baseModifier);
+
+    /**
+     * Resets the stream resource pointing to body content.
+     *
+     * @param resource $bodyStream The body content stream resource
+     *
+     * @return void
+     */
+    public function setBodyStream($bodyStream);
+
+    /**
+     * Sets the application context name (application name prefixed with a slash) for the actual request.
+     *
+     * @param string $contextPath The application context name
+     *
+     * @return void
+     */
+    public function setContextPath($contextPath);
+
+    /**
+     * Sets the flag to mark the request dispatched.
+     *
+     * @param boolean $dispatched TRUE if the request has already been dispatched, else FALSE
+     *
+     * @return void
+     */
+    public function setDispatched($dispatched = true);
+
+    /**
+     * Set headers data.
+     *
+     * @param array $headers The headers array to set
+     *
+     * @return void
+     */
+    public function setHeaders(array $headers);
+
+    /**
+     * Sets the method to be performed on the resource identified by the Request-URI.
+     *
+     * @param string $method The request method
+     *
+     * @return void
+     */
+    public function setMethod($method);
+
+    /**
+     * Sets an array with all request parameters.
+     *
+     * @param array $parameterMap The parameter map
+     *
+     * @return void
+     */
+    public function setParameterMap(array $parameterMap);
+
+    /**
+     * Sets the absolute path info started from the context path.
+     *
+     * @param string $pathInfo The path info
+     *
+     * @return void
+     */
+    public function setPathInfo($pathInfo);
+
+    /**
+     * Set the requested session ID for this request. This is normally called by
+     * the HTTP Connector, when it parses the request headers.
+     *
+     * @param string $requestedSessionId The requested session ID
+     *
+     * @return void
+     */
+    public function setRequestedSessionId($requestedSessionId);
+
+    /**
+     * Set the requested session name for this request.
+     *
+     * @param string $requestedSessionName The requested session name
+     *
+     * @return void
+     */
+    public function setRequestedSessionName($requestedSessionName);
+
+    /**
+     * Sets the path to the servlet used to handle this request.
+     *
+     * @param string $servletPath The path to the servlet
+     *
+     * @return void
+     */
+    public function setServletPath($servletPath);
+
+    /**
+     * Sets the URI.
+     *
+     * @param string $uri The request URI
+     *
+     * @return void
+     */
+    public function setUri($uri);
+
+    /**
+     * Set the protocol version.
+     *
+     * @param string $version The protocol version
+     *
+     * @return void
+     */
+    public function setVersion($version);
 }

@@ -1,3 +1,13 @@
+# Version 2.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add method HttpServlet::doPatch() to handle the HTTP PATCH request method
+
 # Version 1.3.2
 
 ## Bugfixes

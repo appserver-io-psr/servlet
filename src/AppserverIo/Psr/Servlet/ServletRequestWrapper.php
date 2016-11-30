@@ -172,4 +172,24 @@ class ServletRequestWrapper implements ServletRequestInterface
     {
         return $this->getRequest()->isDispatched();
     }
+
+    /**
+     * Returns the absolute path info started from the context path.
+     *
+     * @return string The absolute path
+     */
+    public function getPathInfo()
+    {
+        return $this->getRequest()->getPathInfo();
+    }
+
+    /**
+     * Returns the path to the servlet used to handle this request.
+     *
+     * @return string The path to the servlet
+     */
+    public function getServletPath()
+    {
+        return $this->getRequest()->getServletPath();
+    }
 }
