@@ -118,6 +118,16 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
     }
 
     /**
+     * Return the session identifier proposed by the actual configuration and request state.
+     *
+     * @return string The session identifier proposed for this request
+     */
+    public function getProposedSessionId()
+    {
+        return $this->getRequest()->getProposedSessionId();
+    }
+
+    /**
      * Returns the session for this request.
      *
      * @param boolean $create TRUE to create a new session, else FALSE

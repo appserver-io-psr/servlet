@@ -93,6 +93,13 @@ interface HttpServletRequestInterface extends ServletRequestInterface, RequestIn
     public function getServletPath();
 
     /**
+     * Return the session identifier proposed by the actual configuration and request state.
+     *
+     * @return string The session identifier proposed for this request
+     */
+    public function getProposedSessionId();
+
+    /**
      * Returns the session for this request.
      *
      * @param boolean $create TRUE to create a new session, else FALSE

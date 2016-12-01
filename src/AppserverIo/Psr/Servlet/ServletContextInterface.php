@@ -45,6 +45,16 @@ interface ServletContextInterface
     const IDENTIFIER = 'ServletContextInterface';
 
     /**
+     * Registers the init parameter under the passed name.
+     *
+     * @param string $name  Name to register the init parameter with
+     * @param string $value The value of the init parameter
+     *
+     * @return void
+     */
+    public function addInitParameter($name, $value);
+
+    /**
      * Returns all servlets
      *
      * @return array The servlets collection
