@@ -1,3 +1,14 @@
+# Version 3.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add addInitParameter() method to ServletContextInterface
+* Add getProposedSessionId() method to HttpServletRequestInterface
+
 # Version 2.0.0
 
 ## Bugfixes
