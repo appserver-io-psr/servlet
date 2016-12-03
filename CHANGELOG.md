@@ -1,3 +1,13 @@
+# Version 3.1.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add new utility class RequestHandlerKeys
+
 # Version 3.0.0
 
 ## Bugfixes
