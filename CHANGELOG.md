@@ -1,3 +1,13 @@
+# Version 3.2.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Switch to latest appserver-io/lang branch ~3.0
+
 # Version 3.1.0
 
 ## Bugfixes
