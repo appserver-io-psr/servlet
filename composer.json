@@ -17,7 +17,7 @@
 	],
 	"require" : {
 		"php" : ">=5.4.0",
-		"appserver-io/lang" : "~1.0",
+		"appserver-io/lang" : "~3.0",
 		"appserver-io-psr/http-message" : "~1.0"
 	},
 	"require-dev" : {
