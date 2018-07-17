@@ -1,3 +1,13 @@
+# Version 4.0.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Refactor annotations, make them compatible with Doctrine Annotations library
+
 # Version 3.2.0
 
 ## Bugfixes

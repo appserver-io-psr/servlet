@@ -48,8 +48,8 @@ class RouteTest extends \PHPUnit_Framework_TestCase
 
         // we need to load the annotation instance from the mock servlet implementation
         $reflectionClass = new ReflectionClass('AppserverIo\Psr\Servlet\Annotations\HelloWorldServlet', $ignore, $aliases);
-        $reflectionAnnotation = $reflectionClass->getAnnotation(Route::ANNOTATION);
-        $routeAnnotation = $reflectionAnnotation->newInstance($reflectionAnnotation->getAnnotationName(), $reflectionAnnotation->getValues());
+        $reflectionAnnotation = $reflectionClass->getAnnotation('Route');
+        $routeAnnotation = $reflectionAnnotation->newInstance($reflectionAnnotation->getValues());
 
         // define the URL patterns and the initialization parameters
         $urlPattern = array('/helloWorld.do', '/helloWorld.do*');
