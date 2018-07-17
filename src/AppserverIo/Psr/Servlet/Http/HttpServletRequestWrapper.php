@@ -22,7 +22,6 @@ namespace AppserverIo\Psr\Servlet\Http;
 
 use AppserverIo\Psr\HttpMessage\PartInterface;
 use AppserverIo\Psr\HttpMessage\CookieInterface;
-use AppserverIo\Psr\HttpMessage\RequestInterface;
 use AppserverIo\Psr\Servlet\ServletRequestWrapper;
 
 /**
@@ -271,8 +270,8 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
     /**
      * Adds a part to the parts collection.
      *
-     * @param \AppserverIo\Appserver\ServletEngine\Http\Part $part A form part object
-     * @param string                                         $name A manually defined name
+     * @param \AppserverIo\Psr\HttpMessage\PartInterface $part A form part object
+     * @param string                                     $name A manually defined name
      *
      * @return void
      */
@@ -340,7 +339,7 @@ class HttpServletRequestWrapper extends ServletRequestWrapper implements HttpSer
      *
      * @param string $name The name of the form part
      *
-     * @return \AppserverIo\Http\HttpPart
+     * @return \AppserverIo\Psr\HttpMessage\PartInterface The part instance
      */
     public function getPart($name)
     {

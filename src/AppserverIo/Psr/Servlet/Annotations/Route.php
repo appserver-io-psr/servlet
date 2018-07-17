@@ -20,8 +20,6 @@
 
 namespace AppserverIo\Psr\Servlet\Annotations;
 
-use AppserverIo\Lang\Reflection\ReflectionAnnotation;
-
 /**
  * Annotation to define a servlets routing.
  *
@@ -30,50 +28,81 @@ use AppserverIo\Lang\Reflection\ReflectionAnnotation;
  * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
  * @link      https://github.com/appserver-io-psr/servlet
  * @link      http://www.appserver.io
+ *
+ * @Annotation
+ * @Target({"CLASS"})
  */
-class Route extends ReflectionAnnotation
+class Route
 {
 
     /**
-     * The annotation to define a servlets routing.
+     * The value of the name attribute.
      *
      * @var string
      */
-    const ANNOTATION = 'Route';
+    protected $name;
+
+    /**
+     * The value of the displayName attribute.
+     *
+     * @var string
+     */
+    protected $displayName;
+
+    /**
+     * The value of the description attribute.
+     *
+     * @var string
+     */
+    protected $description;
+
+    /**
+     * The URL patterns the servlet is mapped to.
+     *
+     * @var array
+     */
+    protected $urlPattern = array();
+
+    /**
+     * The URL initialization parameters the servlet is mapped to.
+     *
+     * @var array
+     */
+    protected $initParams = array();
 
     /**
      * The constructor the initializes the instance with the
      * data passed with the token.
      *
-     * @param string $annotationName The annotation name
-     * @param array  $values         The annotation values
+     * @param array $values The annotation values
      */
-    public function __construct($annotationName, array $values = array())
+    public function __construct(array $values = array())
     {
 
-        // pass values to parent constructor
-        parent::__construct($annotationName, $values);
-
-        // initialize the URL pattern values
-        if (!isset($this->values[AnnotationKeys::URL_PATTERN])) {
-            $this->values[AnnotationKeys::URL_PATTERN] = array();
+        // set the name attribute, if available
+        if (isset($values[AnnotationKeys::NAME])) {
+            $this->name = $values[AnnotationKeys::NAME];
         }
 
-        // initialize the initialization parameter values
-        if (!isset($this->values[AnnotationKeys::INIT_PARAMS])) {
-            $this->values[AnnotationKeys::INIT_PARAMS] = array();
+        // set the display name attribute, if available
+        if (isset($values[AnnotationKeys::DISPLAY_NAME])) {
+            $this->displayName = $values[AnnotationKeys::DISPLAY_NAME];
         }
-    }
 
-    /**
-     * This method returns the class name as
-     * a string.
-     *
-     * @return string
-     */
-    public static function __getClass()
-    {
-        return __CLASS__;
+        // set the display name attribute, if available
+        if (isset($values[AnnotationKeys::DESCRIPTION])) {
+            $this->description = $values[AnnotationKeys::DESCRIPTION];
+        }
+
+        // set the url pattern attribute, if available
+        if (isset($values[AnnotationKeys::URL_PATTERN])) {
+            $this->urlPattern = $values[AnnotationKeys::URL_PATTERN];
+        }
+
+        // set the init params attribute, if available
+        if (isset($values[AnnotationKeys::INIT_PARAMS])) {
+            $this->initParams = $values[AnnotationKeys::INIT_PARAMS];
+        }
     }
 
     /**
@@ -83,7 +112,7 @@ class Route extends ReflectionAnnotation
      */
     public function getName()
     {
-        return $this->values[AnnotationKeys::NAME];
+        return $this->name;
     }
 
     /**
@@ -93,7 +122,7 @@ class Route extends ReflectionAnnotation
      */
     public function getDisplayName()
     {
-        return $this->values[AnnotationKeys::DISPLAY_NAME];
+        return $this->displayName;
     }
 
     /**
@@ -103,7 +132,7 @@ class Route extends ReflectionAnnotation
      */
     public function getDescription()
     {
-        return $this->values[AnnotationKeys::DESCRIPTION];
+        return $this->description;
     }
 
     /**
@@ -113,7 +142,7 @@ class Route extends ReflectionAnnotation
      */
     public function getUrlPattern()
     {
-        return $this->values[AnnotationKeys::URL_PATTERN];
+        return $this->urlPattern;
     }
 
     /**
@@ -123,6 +152,6 @@ class Route extends ReflectionAnnotation
      */
     public function getInitParams()
     {
-        return $this->values[AnnotationKeys::INIT_PARAMS];
+        return $this->initParams;
     }
 }
