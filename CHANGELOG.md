@@ -1,3 +1,13 @@
+# Version 4.1.0
+
+## Bugfixes
+
+* None
+
+## Features
+
+* Add ServletRequestInterface::IDENTIFIER and ServletSessionInterface::IDENTIFIER constants
+
 # Version 4.0.0
 
 ## Bugfixes

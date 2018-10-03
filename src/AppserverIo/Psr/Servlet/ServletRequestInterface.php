@@ -33,6 +33,13 @@ interface ServletRequestInterface
 {
 
     /**
+     * The unique identifier to be registered in the application context.
+     *
+     * @var string
+     */
+    const IDENTIFIER = 'ServletRequestInterface';
+
+    /**
      * Returns an array with all request parameters.
      *
      * @return array The array with the request parameters
