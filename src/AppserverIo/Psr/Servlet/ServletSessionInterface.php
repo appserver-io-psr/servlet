@@ -32,10 +32,17 @@ namespace AppserverIo\Psr\Servlet;
  * The comments below hint at methods present in widely used explicit implementations of this interface and MAY
  * be introduced in the next MAJOR release of this PSR
  *
- * @method \AppserverIo\Psr\Servlet\ServletSessionInterface emptyInstance()        emptyInstance() Creates a new and empty session instance
+ * @method \AppserverIo\Psr\Servlet\ServletSessionInterface emptyInstance() emptyInstance() Creates a new and empty session instance
  */
 interface ServletSessionInterface
 {
+
+    /**
+     * The unique identifier to be registered in the application context.
+     *
+     * @var string
+     */
+    const IDENTIFIER = 'ServletSessionInterface';
 
     /**
      * The configuration key for probability the garbage collector will be invoked on the session.
