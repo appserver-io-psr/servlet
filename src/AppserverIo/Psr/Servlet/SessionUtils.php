@@ -42,22 +42,21 @@ class SessionUtils
     /**
      * Creates a random string with the passed length.
      *
-     * @param integer $length The string length to generate
+     * @param integer $length The byte length to generate
      *
-     * @return string The random string
+     * @return string The hex encoded random bytes
      */
     public static function generateRandomString($length = 32)
     {
-        // prepare an array with the chars used to create a random string
-        $letters = str_split('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
 
-        // create and return the random string
-        $bytes = '';
-        foreach (range(1, $length) as $i) {
-            $bytes = $letters[mt_rand(0, sizeof($letters) - 1)] . $bytes;
+        // generate random bytes using openssl
+        $randomBytes = openssl_random_pseudo_bytes($length, $cryptoSafe);
+
+        // make sure the generation was a) successful and b) cryptographically safe
+        if (false === $randomBytes || false === $cryptoSafe) {
+            throw new \RuntimeException('Unable to generate cryptographically safe pseudo random bytes.');
         }
 
-        // return the unique ID
-        return $bytes;
+        return bin2hex($randomBytes);
     }
 }
